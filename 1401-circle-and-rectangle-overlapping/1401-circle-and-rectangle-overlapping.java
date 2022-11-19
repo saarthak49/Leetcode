@@ -34,11 +34,8 @@ class Solution {
                 return true;
         }
         
-        for(int i = xCenter - radius; i<=xCenter + radius; i++)
-        {
-            if(i >= x1 && i <= x2 && yCenter >= y1 && yCenter <= y2)
-                return true;
-        }
+        if(xCenter >= x1 && yCenter >=y1 && xCenter<=x2 && yCenter <=y2)
+            return true;
         
         return false;
     }
