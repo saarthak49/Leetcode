@@ -9,7 +9,6 @@ public:
         int high = first.size();
         int m = first.size();
         int n = second.size();
-        // cout<<m<<" "<<n<<endl;
         int n1 = 0;
         int n2 = 0;
         if(m==0 && n==0)
@@ -17,7 +16,6 @@ public:
         
         if(m==0)
         {
-            // cout<<"good till here\n";
             if(n%2 == 1)
                 return second[(n-1)/2];
             return (second[n/2] + second[(n-1)/2])/2.0;
