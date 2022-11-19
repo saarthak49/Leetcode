@@ -59,62 +59,9 @@ public:
     
     
     vector<string> removeInvalidParentheses(string s) {
-        unordered_map<string, int> mp;
-        int minimumRemovals = getMinimumNumberOfRemovalsToMakeValid(s);
-        // cout<<minimumRemovals<<endl;
         vector<string> output;
-        solve(s, minimumRemovals, output);
-        
-        
-        
-        
+        solve(s, getMinimumNumberOfRemovalsToMakeValid(s), output);
         return output;
         
     }
-    
-    // unordered_map<string,int> mp;
-    // int getMinValid(string s)
-    // {
-    //     stack<char> st;
-    //     int i=0;
-    //     while(i < s.size())
-    //     {
-    //         if(s[i]=='(')
-    //             st.push(s[i]);
-    //         else if(s[i]==')')
-    //         {
-    //             if(st.size()>0 && st.top()=='(')
-    //                 st.pop();
-    //             else
-    //                 st.push(s[i]);
-    //         }
-    //         i++;    
-    //     }
-    //     return st.size();
-    // }
-    // void solve(string s,int mr,vector<string> &res)
-    // {
-    //     if(mp[s]!=0)
-    //         return;
-    //     else
-    //         mp[s]++;
-    //     if(mr==0)
-    //     {
-    //         if(getMinValid(s)==0)
-    //         {
-    //            res.push_back(s); 
-    //         }
-    //     }
-    //     for(int i=0;i<s.size();i++)
-    //     {
-    //         string left=s.substr(0,i);
-    //         string right=s.substr(i+1);
-    //         solve(left+right,mr-1,res);
-    //     }
-    // }
-    // vector<string> removeInvalidParentheses(string s) {
-    //     vector<string> res;
-    //     solve(s,getMinValid(s),res);
-    //     return res;
-    // }
 };
