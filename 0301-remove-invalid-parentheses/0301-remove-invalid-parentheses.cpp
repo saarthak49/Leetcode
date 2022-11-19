@@ -2,6 +2,7 @@ class Solution {
 public:
     
     unordered_map<string, int> mp;
+    vector<string> output;
     
     int getMinimumNumberOfRemovalsToMakeValid(string str)
     {
@@ -29,7 +30,7 @@ public:
     }
     
     
-    void solve(string str, int minimumRemovals, vector<string> &output)
+    void solve(string str, int minimumRemovals)
     {
         if(mp[str] != 0)
             return;
@@ -50,7 +51,7 @@ public:
             if(str[i] == '(' || str[i] == ')')
             {
                 string newString = str.substr(0, i) + str.substr(i + 1);
-                solve(newString, minimumRemovals - 1, output);
+                solve(newString, minimumRemovals - 1);
             }
         }
     }
@@ -59,8 +60,8 @@ public:
     
     
     vector<string> removeInvalidParentheses(string s) {
-        vector<string> output;
-        solve(s, getMinimumNumberOfRemovalsToMakeValid(s), output);
+        
+        solve(s, getMinimumNumberOfRemovalsToMakeValid(s));
         return output;
         
     }
