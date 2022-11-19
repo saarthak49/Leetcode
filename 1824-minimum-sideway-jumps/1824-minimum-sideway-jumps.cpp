@@ -18,38 +18,6 @@ public:
         
         for(int i = 1; i<=n - 1; i++)
         {
-            
-//             if(!isBlocked(obstacles, 1, i))
-//             {
-//                 if(!isBlocked(obstacles, 1, i - 1))
-//                     dp1[i] = min(dp1[i], dp1[i - 1]);
-//                 if(!isBlocked(obstacles, 2, i - 1)  && (!isBlocked(obstacles, 1, i - 1) || !isBlocked(obstacles, 2, i)))
-//                     dp1[i] = min(dp1[i], 1 + dp2[i - 1]);
-//                 if(!isBlocked(obstacles, 1, i) && !isBlocked(obstacles, 3, i-1) && (!isBlocked(obstacles, 1, i-1)||!isBlocked(obstacles, 3, i)))
-//                    dp1[i] = min(dp1[i], 1 + dp3[i-1]);
-//             }
-            
-                   
-//             if(!isBlocked(obstacles, 3, i))
-//             {
-//                 if(!isBlocked(obstacles, 3, i - 1))
-//                     dp3[i] = min(dp3[i], dp3[i - 1]);
-//                 if(!isBlocked(obstacles, 2, i - 1)  && (!isBlocked(obstacles, 3, i - 1) || !isBlocked(obstacles, 2, i)))
-//                     dp3[i] = min(dp3[i], 1 + dp2[i - 1]);
-//                 if(!isBlocked(obstacles, 3, i) && !isBlocked(obstacles, 1, i-1) && (!isBlocked(obstacles, 3, i-1)||!isBlocked(obstacles, 1, i)))
-//                    dp3[i] = min(dp3[i], 1 + dp1[i-1]);
-//             }
-                   
-//             if(!isBlocked(obstacles, 2, i))
-//             {
-//                 if(!isBlocked(obstacles, 2, i - 1))
-//                     dp2[i] = min(dp2[i], dp2[i - 1]);
-//                 if(!isBlocked(obstacles, 1, i - 1)  && (!isBlocked(obstacles, 2, i - 1) || !isBlocked(obstacles, 1, i)))
-//                     dp2[i] = min(dp2[i], 1 + dp1[i - 1]);
-//                 if(!isBlocked(obstacles, 3, i - 1)  && (!isBlocked(obstacles, 2, i - 1) || !isBlocked(obstacles, 3, i)))
-//                    dp2[i] = min(dp2[i], 1 + dp3[i-1]);
-//             }
-            
             dp1[i] = isBlocked(obstacles, 1, i) ? INT_MAX : dp1[i-1];
             dp2[i] = isBlocked(obstacles, 2, i) ? INT_MAX : dp2[i-1];
             dp3[i] = isBlocked(obstacles, 3, i) ? INT_MAX : dp3[i-1];
