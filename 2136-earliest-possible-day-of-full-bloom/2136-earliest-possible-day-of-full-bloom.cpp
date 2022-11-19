@@ -7,6 +7,9 @@ public:
     int earliestFullBloom(vector<int>& plantTime, vector<int>& growTime) {
         multiset<pair<int, int> , decltype(&cmp)> s(&cmp);
         
+        int i = 1000000000;
+        cout<<i<<endl;
+        
         
         
         
