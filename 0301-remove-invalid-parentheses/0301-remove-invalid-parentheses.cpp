@@ -36,12 +36,9 @@ public:
             return;
         else
             mp[str] = 1;
-        if(minimumRemovals == 0)
+        if(minimumRemovals == 0 && getMinimumNumberOfRemovalsToMakeValid(str) == 0)
         {
-            if(getMinimumNumberOfRemovalsToMakeValid(str) == 0)
-            {
                 output.push_back(str);
-            }
         }
         
         
