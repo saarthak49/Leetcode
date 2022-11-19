@@ -4,7 +4,7 @@ public:
     unordered_map<string, int> mp;
     vector<string> output;
     
-    int getMinimumNumberOfRemovalsToMakeValid(string str)
+    int getMinimumNumberOfRemovalsToMakeValid(string &str)
     {
         stack<char> s;
         int n = str.size();
