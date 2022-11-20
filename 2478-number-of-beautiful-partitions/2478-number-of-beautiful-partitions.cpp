@@ -14,14 +14,7 @@ public:
     
     void getAnswer(string s, int k ,int minLength, int dp[1001][1001])
     {
-        
-        // cout<<"printing the string\n";
-        
-            
         int n = s.size();
-        // for(int i = 0; i<=n-1; i++)
-        //     cout<<s[i]<<" ";
-        cout<<endl;
         minLength = max(2, minLength);
         
         dp[0][0] = 1;
@@ -43,21 +36,6 @@ public:
             suffix[n-1] = dp[n-1][c-1];
             for(int i = n-2; i>=0; i--)
                 suffix[i] = (dp[i][c-1] % mod + suffix[i+1] % mod ) % mod;
-
-
-//             cout<<"printing the dp array\n";
-//             for(int i = 0; i<=n-1; i++)
-//             {
-//                 cout<<dp[i][c-1]<<" ";
-//             }
-
-//             cout<<endl;
-//             cout<<"printing the suffix array\n";
-//             for(int i = 0; i<=n-1; i++)
-//                 cout<<suffix[i]<<" ";
-//             cout<<endl;
-
-
 
             for(int i = 0; i<=n-1; i++)
             {
@@ -81,18 +59,6 @@ public:
             }
 
         }
-
-        // cout<<"printing the dp array\n";
-        // for(int i = 0; i<=n-1; i++)
-        // {
-        //     cout<<dp[i][k]<<" ";
-        // }
-
-        cout<<endl;
-        // cout<<"printing the suffix array\n";
-        // for(int i = 0; i<=n-1; i++)
-        //     cout<<suffix[i]<<" ";
-        // cout<<endl;
     }
         
 
