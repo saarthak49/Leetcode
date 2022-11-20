@@ -19,8 +19,8 @@ public:
                 power += tokens[j--];
                 score--;
             }
-            else if(score == 0)
-                break;
+            else
+                return maxScore;
         }
         return maxScore;
     }
