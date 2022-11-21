@@ -68,10 +68,7 @@ public:
 
         int dp[1001][1001];
         memset(dp, 0, sizeof(dp));
-
         int n = s.size();
-        if(!n)
-            return 0;
 
 
         if(!isPrime(s[0]) || isPrime(s[n-1]))
