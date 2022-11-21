@@ -6,7 +6,7 @@ public:
         memset(dpt, 0, sizeof(dpt));
         dpt[0] = 1;
         int numberWays = 0;
-        for(int i = min(one, zero); i<=high; i++)
+        for(int i = 1; i<=high; i++)
         {
             if(i >= zero)
                 dpt[i] = (dpt[i] % mod +  dpt[i - zero] % mod )  % mod;
