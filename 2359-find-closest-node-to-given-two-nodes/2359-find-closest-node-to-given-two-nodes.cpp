@@ -2,9 +2,10 @@ class Solution {
 public:
     
     
-    int findIntersection(vector<int> vec1, vector<int> vec2)    
+    int findIntersection(vector<int> vec1, vector<int> vec2, int n)    
     {
-        unordered_map<int, int> mp1;
+        int mp1[n];
+        memset(mp1, -1, sizeof(mp1));
         int minDist = INT_MAX;
         int returnPoint = -1;
         
@@ -15,7 +16,7 @@ public:
         
         for(int i = 0; i<=vec2.size() - 1; i++)
         {
-            if(mp1.find(vec2[i]) != mp1.end())
+            if(mp1[vec2[i]] != -1)
             {
                 int dist = max(i, mp1[vec2[i]]);
                 if(dist < minDist)
@@ -63,7 +64,7 @@ public:
         
         
         
-        int point = findIntersection(firstNodeDfs, secondNodeDfs);
+        int point = findIntersection(firstNodeDfs, secondNodeDfs, n);
         
         return point;
         
