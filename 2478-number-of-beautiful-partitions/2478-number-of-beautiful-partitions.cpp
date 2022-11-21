@@ -74,7 +74,7 @@ public:
             return 0;
 
 
-        if(!isPrime(s[0]) || isPrime(s[n-1]) || n-1 < minLength)
+        if(!isPrime(s[0]) || isPrime(s[n-1]))
             return 0;
 
         getAnswer(s, k-1, minLength, dp);
