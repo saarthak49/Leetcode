@@ -8,9 +8,9 @@ public:
         int numberWays = 0;
         for(int i = 1; i<=high; i++)
         {
-            if(i - zero >= 0)
+            if(i >= zero)
                 dpt[i] = (dpt[i] % mod +  dpt[i - zero] % mod )  % mod;
-            if(i - one >= 0)
+            if(i >= one)
                 dpt[i] = (dpt[i] % mod  + dpt[i - one] % mod) % mod;
             
             if(i >= low && i <= high)
