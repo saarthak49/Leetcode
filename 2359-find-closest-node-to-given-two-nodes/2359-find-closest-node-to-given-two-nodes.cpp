@@ -17,8 +17,6 @@ public:
         {
             if(mp1.find(vec2[i]) != mp1.end())
             {
-                // cout<<"Running for : "<<vec2[i]<<endl;
-                // cout<<"dist : "<<i<<" from map: "<<mp1[vec2[i]]<<endl; 
                 int dist = max(i, mp1[vec2[i]]);
                 if(dist < minDist)
                 {
@@ -49,7 +47,9 @@ public:
     }
     
     int closestMeetingNode(vector<int>& edges, int node1, int node2) {
-        bool vis[100005];
+        
+        int n = edges.size();
+        bool vis[n];
         memset(vis, false, sizeof(vis));
         
         vector<int> firstNodeDfs;
@@ -60,15 +60,12 @@ public:
         vector<int> secondNodeDfs;
         getDfsPath(node2, edges, vis, secondNodeDfs);
         
-        // printVector(firstNodeDfs);
-        // printVector(secondNodeDfs);
         
         
         
         int point = findIntersection(firstNodeDfs, secondNodeDfs);
         
         return point;
-        // return 0;
         
     }
 };
