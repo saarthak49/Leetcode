@@ -6,38 +6,35 @@ public:
     
     
     
-    bool getBobPath(vector<int> graph[], int bob, bool vis[], vector<int> &bobPath)
+    bool getBobPath(vector<int> graph[], int bob, int p, vector<int> &bobPath)
     {
         if (bob == 0) {
             bobPath.push_back(bob);
-            return 1;
+            return true;
         }
         
-        vis[bob] = 1;
-        bool flag = 0;
+        bool flag = flag;
         for (auto it: graph[bob]) {
-            if (!vis[it])
-                flag = getBobPath(graph, it, vis, bobPath);
+            if (it != p)
+                flag = getBobPath(graph, it, bob, bobPath);
             
             if (flag) {
                 bobPath.push_back(bob);
-                return 1;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
     
     
-    int findOptimal(vector<int> graph[], int source, vector<int> &amount, bool vis[])
+    int findOptimal(vector<int> graph[], int source, vector<int> &amount, int p)
     {
         int res = INT_MIN;
-        vis[source] = true;
-        // cout<<"Called for : "<<source<<endl;
         for(auto it: graph[source])
         {
             
-            if(!vis[it])
-                res = max(res, findOptimal(graph, it, amount, vis));
+            if(it != p)
+                res = max(res, findOptimal(graph, it, amount, source));
         }
         if(res == INT_MIN)
             return amount[source];
@@ -64,12 +61,9 @@ public:
         }
         
         
-        // find the path of bob
-        bool vis[n+2];
-        memset(vis, false, sizeof(vis));
         
         vector<int> bobPath;
-        getBobPath(graph, bob, vis, bobPath);
+        getBobPath(graph, bob, -1, bobPath);
         
         
         
@@ -85,13 +79,7 @@ public:
             amount[bobPath[(bobPathLength - 1)/2]] /= 2;
         }
         
-        
-        
-        memset(vis, false, sizeof(vis));
-        
-        // find the optimal for alice
-        
-        int optimal = findOptimal(graph, 0, amount, vis);
+        int optimal = findOptimal(graph, 0, amount, -1);
         return optimal;
         // return 0;
         
