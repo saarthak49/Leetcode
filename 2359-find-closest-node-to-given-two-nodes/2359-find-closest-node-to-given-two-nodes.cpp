@@ -2,69 +2,59 @@ class Solution {
 public:
     
     
-    int findIntersection(vector<int> vec1, vector<int> vec2, int n)    
+    int findIntersection(int mp1[], int mp2[], int n)    
     {
-        int mp1[n];
-        memset(mp1, -1, sizeof(mp1));
         int minDist = INT_MAX;
         int returnPoint = -1;
         
-        for(int i = 0; i<=vec1.size() - 1; i++)
+        for(int i = 0; i<=n - 1; i++)
         {
-            mp1[vec1[i]] = i;
-        }
-        
-        for(int i = 0; i<=vec2.size() - 1; i++)
-        {
-            if(mp1[vec2[i]] != -1)
+            if(mp1[i] != -1 && mp2[i] != -1)
             {
-                int dist = max(i, mp1[vec2[i]]);
+                int dist = max(mp1[i], mp2[i]);
                 if(dist < minDist)
                 {
                     minDist = dist;
-                    returnPoint = vec2[i];
+                    returnPoint = i;
                 }
-                else if(dist == minDist && vec2[i] < returnPoint)
-                    returnPoint = vec2[i];
+                else if(dist == minDist && i < returnPoint)
+                    returnPoint = i;
             }
         }
         
         return returnPoint;
         
     }
-    void getDfsPath(int source, vector<int> &edges, bool vis[], vector<int> &vec)
+    void getDfsPath(int source, vector<int> &edges, int mp1[], int i)
     {
-        vis[source] = true;
-        vec.push_back(source);
-        if(edges[source] != -1 && !vis[edges[source]])
-            getDfsPath(edges[source], edges, vis, vec);
+        mp1[source] = i;
+        if(edges[source] != -1 && mp1[edges[source]] == -1)
+        {
+            getDfsPath(edges[source], edges, mp1, i+1);
+        }
     }
     
-    void printVector(vector<int> vec)
-    {
-        for(auto it: vec)
-            cout<<it<<" ";
-        cout<<endl;
-    }
     
     int closestMeetingNode(vector<int>& edges, int node1, int node2) {
         
         int n = edges.size();
-        bool vis[n];
-        memset(vis, false, sizeof(vis));
+        int mp1[n];
+        memset(mp1, -1, sizeof(mp1));
         
         vector<int> firstNodeDfs;
-        getDfsPath(node1, edges, vis, firstNodeDfs);
+        getDfsPath(node1, edges, mp1, 0);
         
-        memset(vis, false, sizeof(vis));
+        int mp2[n];
+        memset(mp2, -1, sizeof(mp2));
         
         vector<int> secondNodeDfs;
-        getDfsPath(node2, edges, vis, secondNodeDfs);
+        int i = 0;
+        getDfsPath(node2, edges, mp2, i);
         
         
         
         
-        int point = findIntersection(firstNodeDfs, secondNodeDfs, n);
+        int point = findIntersection(mp1, mp2, n);
         
         return point;
         
