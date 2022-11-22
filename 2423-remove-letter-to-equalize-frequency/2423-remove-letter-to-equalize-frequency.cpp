@@ -51,8 +51,6 @@ public:
                 freq2 = it.second;
             }
         }
-        // cout<<elem1<<" "<<freq1<<endl;
-        // cout<<elem2<<" "<<freq2<<endl;
         if(elem2 == 0 && elem1 == 1)
             return true;
         if(freq1 == 1 && (elem1 == 1 || elem1-1 == elem2) || freq2 == 1 && (elem2 == 1 || elem2-1 == elem1) )
