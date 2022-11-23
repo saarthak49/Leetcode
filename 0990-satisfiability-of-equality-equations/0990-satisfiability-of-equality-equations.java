@@ -10,7 +10,9 @@ class Solution {
         if(dsu.get(i) == i)
             return i;
         
-        return getParent(dsu, dsu.get(i));
+        dsu.set(i, getParent(dsu, dsu.get(i)));
+        
+        return dsu.get(i);
     }
     
     void union(List<Integer> dsu, int var1, int var2)
