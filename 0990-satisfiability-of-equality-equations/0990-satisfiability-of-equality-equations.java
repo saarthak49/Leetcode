@@ -15,7 +15,15 @@ class Solution {
         return dsu.get(i);
     }
     
-    void union(List<Integer> dsu, int var1, int var2)
+    int getRank(List<Integer> dsu, List<Integer> ranks, int i)
+    {
+        int parent = getParent(dsu, i);
+        if(parent == -1)
+            return 0;
+        return ranks.get(parent);
+    }
+    
+    void union(List<Integer> dsu, List<Integer> ranks, int var1, int var2)
     {
         int par1 = getParent(dsu, var1);
         int par2 = getParent(dsu, var2);
@@ -23,16 +31,33 @@ class Solution {
         {
             dsu.set(var1, var1);
             par1 = var1;
+            ranks.set(par1, 0);
         }
         if(par2 == -1) {
             dsu.set(var2, var2);
             par2 = var2;
+            ranks.set(par2, 0);
         }
         
         
         
         if(par1 != par2)
-            dsu.set(par1, par2);
+        {
+            int rank1 = ranks.get(par1);
+            int rank2 = ranks.get(par2);
+            if(rank1 < rank2)
+            {
+                dsu.set(par1, par2);
+            }
+            else if(rank1 > rank2)
+                dsu.set(par2, par1);
+            else
+            {
+                dsu.set(par1, par2);
+                rank2++;
+                ranks.set(par2, rank2);
+            }
+        }
     }
     
     boolean inequality(List<Integer> dsu, int var1, int var2)
@@ -63,11 +88,15 @@ class Solution {
     
     public boolean equationsPossible(String[] equations) {
         List<Integer> dsu = new ArrayList<>();
+        List<Integer> ranks = new ArrayList<>();
         
         int n = equations.length;
         
         for(int i = 0; i<=25; i++)
+        {
+            ranks.add(0);
             dsu.add(-1);
+        }
         
         
         for(int i = 0; i<=n-1; i++)
@@ -75,7 +104,7 @@ class Solution {
             int var1 = (int) (equations[i].charAt(0) - 'a');
             int var2 = (int) (equations[i].charAt(3) - 'a');
             if(equations[i].charAt(1) == equations[i].charAt(2))
-                union(dsu, var1, var2);
+                union(dsu, ranks, var1, var2);
         }
         
         for(int i = 0; i<=n-1; i++)
