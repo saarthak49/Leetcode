@@ -20,15 +20,10 @@ public:
         unordered_map<int, int> mp = findElementAtTail(arr);
         int n = arr.size();
         int j = n-1;
-        // for(auto it: mp)
-        // {
-        //     cout<<it.first<<" "<<it.second<<endl;
-        // }
         for(int i = n-1; i>=0; i--)
         {
             if(mp[i] <= n-1)
             {
-                // cout<<arr[i]<<" being moved to position "<<mp[i]<<endl;
                 arr[mp[i]] = arr[i];
                 if(arr[i] == 0 && mp[i] + 1 <= n-1)
                     arr[mp[i] + 1] = 0;
