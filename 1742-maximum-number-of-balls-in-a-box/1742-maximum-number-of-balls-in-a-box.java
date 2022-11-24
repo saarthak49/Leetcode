@@ -1,7 +1,7 @@
 class Solution {
-public:
     
-    int getSum(int num)
+    
+    private int getSum(int num)
     {
         int sum = 0;
         while(num != 0)
@@ -12,23 +12,26 @@ public:
         return sum;
     }
     
-    int countBalls(int lowLimit, int highLimit) {
-        unordered_map<int, int> mp;
-        int maxNumber = 0;
+    
+    public int countBalls(int lowLimit, int highLimit) {
+        Map<Integer, Integer> mp = new HashMap<>();
         
+        int maxAnswer = 1;
         
         for(int i = lowLimit; i<=highLimit; i++)
         {
-            int getAnswer = getSum(i);
-            
-            mp[getAnswer]++;
-            if(mp[getAnswer] > maxNumber)
+            int ans = getSum(i);
+            if(mp.containsKey(ans))
             {
-                maxNumber = mp[getAnswer];
+                int balls = mp.get(ans);
+                mp.put(ans, balls + 1);
+                if(balls + 1 > maxAnswer)
+                    maxAnswer = balls + 1;
+                
             }
+            else
+                mp.put(ans, 1);
         }
-        
-        return maxNumber;
-        
+        return maxAnswer;
     }
-};
+}
