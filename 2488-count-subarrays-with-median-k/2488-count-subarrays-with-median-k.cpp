@@ -1,40 +1,5 @@
 class Solution {
 public:
-    int findSmallerThanK(vector<int> nums, int k)
-    {
-        int count = 0;
-        for(auto it: nums)
-        {
-            if(it < k)
-                count++;
-        }
-        return count;
-    }
-    int findGreaterThanK(vector<int> nums, int k)
-    {
-        int count = 0;
-        for(auto it: nums)
-        {
-            
-            if(it > k)
-                count++;
-        }
-        return count;
-    }
-    int c(int l, int p)
-    {
-        if(p > l)
-            return 0;
-        if(l == 0 || p == 0)
-            return 1;
-        int answer = 1;
-        for(int i = p + 1; i<=l; i++)
-        {
-            answer *= i;
-            answer /= (i - p);
-        }
-        return answer;
-    }
     int findK(vector<int> nums, int k)
     {
         for(int i = 0; i<=nums.size() - 1; i++)
