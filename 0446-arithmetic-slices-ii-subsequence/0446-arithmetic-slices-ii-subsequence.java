@@ -22,18 +22,13 @@ class Solution {
                 long prev = 0;
                 long curr = 0;
                 if(dp.get(j).containsKey(cd))
-                {
-                    // System.out.println(dp.get(j).get(cd));
                     prev = dp.get(j).get(cd);
-                }
                 
                 
                 if(tempMap.containsKey(cd))
                     curr = tempMap.get(cd);
                 
                 tempMap.put(cd, prev + curr + 1);
-                
-                // System.out.println(j + " " + i + " " + cd + " " + prev + " " + curr + " " + dp.get(i).get(cd));
             }
             dp.set(i, tempMap);
         }
@@ -42,10 +37,7 @@ class Solution {
         for(Map<Long, Long> te: dp)
         {
             for(long val: te.values())
-            {
-                // System.out.println(val);
                 sum += val;
-            }
         }
         
         
