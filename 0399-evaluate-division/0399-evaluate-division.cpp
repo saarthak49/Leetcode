@@ -4,8 +4,6 @@ public:
     
     void runDfs(int start, int end, vector<vector<bool> > graph, vector<vector<double> > weights, vector<bool> vis, bool &flag, double &ans, double value)
     {
-        // cout<<"called on id = "<<start<<endl;
-        
         if(flag)
             return;
         
@@ -54,9 +52,6 @@ public:
                 idMap[equations[i][1]] = id++;
             
             int id2 = idMap[equations[i][1]];
-            
-            // cout<<id1<<" "<<id2<<endl;
-            
             graph[id1][id2] = true;
             weights[id1][id2] = values[i];
             
@@ -84,9 +79,6 @@ public:
             
             int id1 = idMap[str1];
             int id2 = idMap[str2];
-            
-            // cout<<id1<<" "<<id2<<endl;
-            
             double an = 0.0;
             double value = 1.0;
             bool flag = false;
