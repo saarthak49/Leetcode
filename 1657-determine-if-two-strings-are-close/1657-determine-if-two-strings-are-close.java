@@ -42,16 +42,11 @@ class Solution {
         if(lst1.size() != lst2.size())
             return false;
         
-        // System.out.println(lst1);
-        // System.out.println(lst2);
         
         for(int i = 0; i<=lst1.size()-1 && i<=lst2.size()-1; i++)
         {
             if((int)lst1.get(i) != (int)lst2.get(i))
-            {
-                // System.out.println("mismatch found " + lst1.get(i) + " : " + lst2.get(i));
                 return false;
-            }
         }
         return true;
         
