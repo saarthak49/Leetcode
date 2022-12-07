@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/minimum-area-rectangle/">939. Minimum Area Rectangle</a></h2><h3>Medium</h3><hr><div><p>You are given an array of points in the <strong>X-Y</strong> plane <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
+<h2><a href="https://leetcode.com/problems/minimum-area-rectangle/solution/">939. Minimum Area Rectangle</a></h2><h3>Medium</h3><hr><div><p>You are given an array of points in the <strong>X-Y</strong> plane <code>points</code> where <code>points[i] = [x<sub>i</sub>, y<sub>i</sub>]</code>.</p>
 
 <p>Return <em>the minimum area of a rectangle formed from these points, with sides parallel to the X and Y axes</em>. If there is not any such rectangle, return <code>0</code>.</p>
 
