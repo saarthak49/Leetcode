@@ -15,12 +15,6 @@ class TreeAncestor {
         {
             for(int i = 0; i<=n-1; i++)
             {
-                if(i == 0)
-                {
-                    sparseTable[i][j] = -1;
-                    continue;
-                }
-                
                 
                 if(j == 0)
                 {
