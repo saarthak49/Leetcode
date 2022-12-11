@@ -29,11 +29,9 @@ class Solution {
                 if(a[1] >= high)
                 {
                     q.offer(new int[]{costs[high], high--});
+                    continue;
                 }
-                else
-                {
-                    q.offer(new int[]{costs[low], low++});
-                }
+                q.offer(new int[]{costs[low], low++});
             }
                 
         }
