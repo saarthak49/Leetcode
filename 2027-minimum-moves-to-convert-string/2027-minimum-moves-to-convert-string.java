@@ -12,9 +12,9 @@ class Solution {
             {
                 count++;
                 i+=3;
+                continue;
             }
-            else
-                i++;
+            i++;
         }
         
         return count;
