@@ -7,15 +7,14 @@ class Solution {
             return a[1] - b[1];
         });
         
-        int n = costs.length;
         for(int i = 0; i<=candidates - 1; i++)
             q.offer(new int[]{costs[i], i});
         
-        for(int i = n-1; i>=Math.max(candidates, n - candidates); i--)
+        for(int i = costs.length-1; i>=Math.max(candidates, costs.length - candidates); i--)
             q.offer(new int[]{costs[i], i});
         
         int low = candidates;
-        int high = n - candidates - 1;
+        int high = costs.length - candidates - 1;
         
         
         long sum = 0;
@@ -29,7 +28,7 @@ class Solution {
                 if(a[1] >= high)
                     q.offer(new int[]{costs[high], high--});
                 else
-                q.offer(new int[]{costs[low], low++});
+                    q.offer(new int[]{costs[low], low++});
             }
                 
         }
