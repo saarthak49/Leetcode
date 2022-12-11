@@ -19,18 +19,12 @@ class Solution {
         
         
         long sum = 0;
-        
-        // System.out.println(low + " : " + high);
-        
         while(k --> 0)
         {
             int[] a = q.poll();
             sum+= a[0];
-            
-            // System.out.println("The added element to the sum is " + a[1] + " coming from index " + a[0]);
-            
-            
-            if(q.size() < 2*candidates && high - low >= 0)
+        
+            if(high - low >= 0)
             {
                 if(a[1] >= high)
                 {
