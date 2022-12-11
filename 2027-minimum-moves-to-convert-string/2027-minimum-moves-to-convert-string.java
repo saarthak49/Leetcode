@@ -1,12 +1,11 @@
 class Solution {
     public int minimumMoves(String s) {
         
-        int n = s.length();
         int count = 0;
         
         
         int i = 0;
-        while(i <= n-1)
+        while(i < s.length())
         {
             if(s.charAt(i) == 'X')
             {
