@@ -7,6 +7,7 @@ class Solution {
             return a[1] - b[1];
         });
         
+        
         for(int i = 0; i<=candidates - 1; i++)
             q.offer(new int[]{costs[i], i});
         
