@@ -27,10 +27,8 @@ class Solution {
             if(high - low >= 0)
             {
                 if(a[1] >= high)
-                {
                     q.offer(new int[]{costs[high], high--});
-                    continue;
-                }
+                else
                 q.offer(new int[]{costs[low], low++});
             }
                 
