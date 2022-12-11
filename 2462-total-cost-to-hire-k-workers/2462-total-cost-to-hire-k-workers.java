@@ -19,7 +19,7 @@ class Solution {
         
         
         long sum = 0;
-        while(k -- !=  0)
+        while(k -- >  0)
         {
             int[] a = q.poll();
             sum+= a[0];
