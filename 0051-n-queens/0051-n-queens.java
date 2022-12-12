@@ -58,23 +58,6 @@ class Solution {
                     ptr--;
                 }
                 placeQueen(n, i + 1, gridCopy, ans);
-                // for(int k = i + 1; k<=n-1; k++)
-                // {
-                //     grid[k][j] = '.';
-                // }
-                // grid[i][j] = '.';
-                // ptr = j + 1;
-                // for(int k = i + 1; k<=n-1 && ptr<=n-1; k++)
-                // {
-                //     grid[k][ptr] = '.';
-                //     ptr++;
-                // }
-                // ptr = j - 1;
-                // for(int k = i + 1; k<=n-1 && ptr>=0; k++)
-                // {
-                //     grid[k][ptr] = '.';
-                //     ptr--;
-                // }
             }
         }
         return;
