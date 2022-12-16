@@ -9,8 +9,8 @@ class Solution {
         boolean[] arr = new boolean[n];
         
         
-        for(int i = 0; i<=n-1; i++)
-            arr[i] = false;
+        // for(int i = 0; i<=n-1; i++)
+        //     arr[i] = false;
         
         
         int track = nums[0];
