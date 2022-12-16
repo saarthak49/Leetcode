@@ -9,14 +9,14 @@ class Solution {
         int m = part.length();
         
         StringBuilder st1 = new StringBuilder("");
-        for(int i = 1; i<=1000; i++)
-            st1.append("a");
         
         int index = 0;
         
         
         for(int i = 0; i<=n-1; i++)
         {
+            if(st1.length() < (i + 1))
+                st1.append("a");
             st1.append(s.charAt(i));
             st1.setCharAt(index, s.charAt(i));
             
