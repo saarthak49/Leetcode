@@ -9,12 +9,10 @@ class Solution {
         boolean[] arr = new boolean[n];
         
         
-        // for(int i = 0; i<=n-1; i++)
-        //     arr[i] = false;
-        
+        // 
         
         int track = nums[0];
-        for(int i = 1; i<=n-1; i++)
+        for(int i = 1; i<=n-2; i++)
         {
             
             if(track < nums[i])
@@ -24,7 +22,7 @@ class Solution {
         }
         
         track = nums[n-1];
-        for(int i = n-2; i>=0; i--)
+        for(int i = n-2; i>=1; i--)
         {
             if(track > nums[i] && arr[i])
                 return true;
