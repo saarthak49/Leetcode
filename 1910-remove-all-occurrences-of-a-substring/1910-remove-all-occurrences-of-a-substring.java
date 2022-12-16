@@ -20,7 +20,6 @@ class Solution {
         
         for(int i = 0; i<=n-1; i++)
         {
-            st1.append(s.charAt(i));
             st1.setCharAt(index, s.charAt(i));
             
             int j = m - 1;
