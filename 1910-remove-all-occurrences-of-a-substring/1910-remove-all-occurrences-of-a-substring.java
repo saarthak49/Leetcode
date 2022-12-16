@@ -7,6 +7,8 @@ class Solution {
         
         int n = s.length();
         int m = part.length();
+        if(m > n)
+            return s;
         
         StringBuilder st1 = new StringBuilder("");
         
