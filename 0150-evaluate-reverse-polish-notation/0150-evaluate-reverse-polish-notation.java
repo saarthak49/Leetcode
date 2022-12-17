@@ -5,7 +5,7 @@
 class Solution {
     
     
-    private int[] stack = new int[10001];
+    private int[] stack;
     private int top;
     
     
@@ -28,7 +28,7 @@ class Solution {
         
         
         int n = tokens.length;
-        // this.stack = new int[n];
+        this.stack = new int[n];
         this.top = -1;
         
         
