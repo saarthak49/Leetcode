@@ -38,13 +38,13 @@ class Solution {
             
             String token = tokens[i];
             
-            if(token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/"))
+            if(tokens[i].equals("+") || tokens[i].equals("-") || tokens[i].equals("*") || tokens[i].equals("/"))
             {
                 int b = pop();
                 int a = pop();
                 
                 int result = 0;
-                switch(token)
+                switch(tokens[i])
                 {
                     case "+":
                         result = a + b;
@@ -62,7 +62,7 @@ class Solution {
                 push(result);
             }
             else
-                push(Integer.parseInt(token));
+                push(Integer.parseInt(tokens[i]));
             
         }
         
