@@ -35,9 +35,6 @@ class Solution {
         for(int i = 0; i<=n-1; i++)
         {
             
-            
-            String token = tokens[i];
-            
             if(tokens[i].equals("+") || tokens[i].equals("-") || tokens[i].equals("*") || tokens[i].equals("/"))
             {
                 int b = pop();
