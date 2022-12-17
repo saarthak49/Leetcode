@@ -12,9 +12,7 @@ class Solution {
                 smallest = nums[i];
             else if(nums[i] > smallest && nums[i] < secondSmallest)
                 secondSmallest = nums[i];
-            
-            
-            if(nums[i] > secondSmallest)
+            else if(nums[i] > secondSmallest)
                 return true;
             
         }
