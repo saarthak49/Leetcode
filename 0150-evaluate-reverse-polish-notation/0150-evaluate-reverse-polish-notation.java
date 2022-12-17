@@ -1,10 +1,36 @@
+
+// trying to make own stack to see if submission is faster
+
+
 class Solution {
+    
+    
+    private int[] stack;
+    private int top;
+    
+    
+    private void push(int x)
+    {
+        stack[++top] = x;
+    }
+    
+    
+    
+    private int pop()
+    {
+        return stack[top--];
+    }
+    
+    
+    
     public int evalRPN(String[] tokens) {
         
         
-        int n = tokens.length;
         
-        Stack<Integer> s = new Stack<>();
+        int n = tokens.length;
+        this.stack = new int[n];
+        this.top = -1;
+        
         
         for(int i = 0; i<=n-1; i++)
         {
@@ -14,8 +40,8 @@ class Solution {
             
             if(token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/"))
             {
-                int b = s.pop();
-                int a = s.pop();
+                int b = pop();
+                int a = pop();
                 
                 int result = 0;
                 switch(token)
@@ -33,13 +59,13 @@ class Solution {
                         result = a / b;
                         break;
                 }
-                s.add(result);
+                push(result);
             }
             else
-                s.add(Integer.parseInt(token));
+                push(Integer.parseInt(token));
             
         }
         
-        return s.pop();
+        return pop();
     }
 }
