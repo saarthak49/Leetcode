@@ -1,33 +1,22 @@
 class Solution {
     public boolean increasingTriplet(int[] nums) {
-        
         int n = nums.length;
-        
-        if(n<=2)
+        if(n <= 2)
             return false;
+        int smallest = Integer.MAX_VALUE;
+        int secondSmallest = Integer.MAX_VALUE;
         
-        boolean[] arr = new boolean[n];
-        
-        
-        // 
-        
-        int track = nums[0];
-        for(int i = 1; i<=n-2; i++)
+        for(int i = 0; i<=n-1; i++)
         {
+            if(nums[i] < smallest)
+                smallest = nums[i];
+            else if(nums[i] > smallest && nums[i] < secondSmallest)
+                secondSmallest = nums[i];
             
-            if(track < nums[i])
-                arr[i] = true;
-            else
-                track = nums[i];
-        }
-        
-        track = nums[n-1];
-        for(int i = n-2; i>=1; i--)
-        {
-            if(track > nums[i] && arr[i])
+            
+            if(nums[i] > secondSmallest)
                 return true;
-            else if(track <= nums[i])
-                track = nums[i];
+            
         }
         return false;
     }
