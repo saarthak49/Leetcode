@@ -24,13 +24,10 @@ class Solution {
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         
         List<List<Integer> > graph = new ArrayList<>();
-        List<Integer> temp = new ArrayList<>();
-        graph.add(temp);
-        
-        for(int i = 1; i<=n; i++)
+        for(int i = 0; i<=n; i++)
         {
-            List<Integer> temp2 = new ArrayList<>();
-            graph.add(temp2);
+            List<Integer> temp = new ArrayList<>();
+            graph.add(temp);
         }
         
         int s = edges.length;
