@@ -9,13 +9,15 @@ class Solution {
         
         vis.set(source, true);
         
-        boolean found = false;
         for(int i : graph.get(source))
         {
             if(!vis.get(i))
-                found = found || runDfs(graph, vis, i, destination);
+            {
+                if(runDfs(graph, vis, i, destination))
+                    return true;
+            }
         }
-        return found;
+        return false;
     }
     
     
