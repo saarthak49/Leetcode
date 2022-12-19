@@ -2,16 +2,16 @@ class Solution {
     
     
     
-    public boolean runDfs(List<List<Integer> > graph, List<Boolean> vis, int source, int destination)
+    public boolean runDfs(List<Integer> graph[], boolean vis[], int source, int destination)
     {
         if(source == destination)
             return true;
         
-        vis.set(source, true);
+        vis[source] = true;
         
-        for(int i : graph.get(source))
+        for(int i : graph[source])
         {
-            if(!vis.get(i))
+            if(!vis[i])
             {
                 if(runDfs(graph, vis, i, destination))
                     return true;
@@ -23,27 +23,20 @@ class Solution {
     
     public boolean validPath(int n, int[][] edges, int source, int destination) {
         
-        List<List<Integer> > graph = new ArrayList<>();
+        List<Integer>[] graph = new ArrayList[n + 1];
         for(int i = 0; i<=n; i++)
-        {
-            List<Integer> temp = new ArrayList<>();
-            graph.add(temp);
-        }
-        
+            graph[i] = new ArrayList<>();
         int s = edges.length;
-        for(int i = 0; i<=s - 1; i++)
+        
+        
+        for(int edge[] : edges)
         {
-            int src = edges[i][0];
-            int dst = edges[i][1];
-            
-            graph.get(src).add(dst);
-            graph.get(dst).add(src);
+            graph[edge[0]].add(edge[1]);
+            graph[edge[1]].add(edge[0]);
         }
         
-        List<Boolean> vis = new ArrayList<>();
-        for(int i = 0; i<=n; i++)
-            vis.add(false);
         
+        boolean[] vis = new boolean[n + 1];
         
         return runDfs(graph, vis, source, destination);
         
