@@ -7,10 +7,6 @@ class Solution {
         int a = Math.max(-prices[0], -prices[1]);
         int c = 0;
         int b = Math.max(0, prices[1] - prices[0]);
-        
-        
-        
-            
         for(int i = 2; i<=n-1; i++)
         {
             int t = b;
