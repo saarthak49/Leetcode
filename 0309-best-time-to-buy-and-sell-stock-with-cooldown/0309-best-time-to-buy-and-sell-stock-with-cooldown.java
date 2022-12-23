@@ -4,20 +4,19 @@ class Solution {
         int n = prices.length;
         if(n <= 1)
             return 0;
-        int a = -prices[0];
-        int b = 0;
-        int c = Math.max(0, prices[1] - prices[0]);
+        int a = Math.max(-prices[0], -prices[1]);
+        int c = 0;
+        int b = Math.max(0, prices[1] - prices[0]);
         
         
         
             
-        for(int i = 1; i<=n-1; i++)
+        for(int i = 2; i<=n-1; i++)
         {
-            int t1 = Math.max(a, c - prices[i]);
-            int t2 = Math.max(b, a + prices[i]);
-            c = b;
-            b = t2;
-            a = t1;
+            int t = b;
+            b = Math.max(b, a + prices[i]);
+            a = Math.max(a, c - prices[i]);
+            c = t;
         }
         return b;
         
