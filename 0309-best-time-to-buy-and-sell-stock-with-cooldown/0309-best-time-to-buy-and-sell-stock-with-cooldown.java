@@ -13,10 +13,11 @@ class Solution {
             
         for(int i = 1; i<=n-1; i++)
         {
-            int t = b;
-            b = Math.max(b, a + prices[i]);
-            a = Math.max(a, c - prices[i]);
-            c = t;
+            int t1 = Math.max(a, c - prices[i]);
+            int t2 = Math.max(b, a + prices[i]);
+            c = b;
+            b = t2;
+            a = t1;
         }
         return b;
         
