@@ -34,7 +34,8 @@ class Solution {
         sum[1] = 2;
         sum[2] = 4;
         
-        
+        int a = 2;
+        int b = 1;
         
         
         for(int i = 3; i<=n; i++)
