@@ -6,8 +6,6 @@ class Solution {
     public int numTilings(int n) {
         
         
-        int[] f = new int[n + 1];
-        int[] g = new int[n + 1];
         int[] h = new int[n + 1];
         int[] sum = new int[n + 1];
         if(n == 1)
@@ -15,16 +13,6 @@ class Solution {
         else if(n == 2)
             return 2;
         
-        
-        
-        
-        f[0] = 1;
-        f[1] = 1;
-        f[2] = 2;
-        
-        g[0] = 1;
-        g[1] = 1;
-        g[2] = 1;
         
         h[0] = 1;
         h[1] = 1;
@@ -40,10 +28,10 @@ class Solution {
         
         for(int i = 3; i<=n; i++)
         {
-            f[i] = (a%mod + b%mod)%mod;
+            int flatTiles = (a%mod + b%mod)%mod;
             
             int t = (sum[i - 3] % mod * 2 % mod ) % mod;
-            h[i] = (f[i]%mod + t%mod ) % mod;
+            h[i] = (flatTiles % mod + t%mod ) % mod;
             
             sum[i] = (h[i]%mod + sum[i-1]%mod ) % mod;
             b = a;
