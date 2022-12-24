@@ -24,20 +24,20 @@ class Solution {
         
         int a = 2;
         int b = 1;
-        
+        int total = 2;
         
         for(int i = 3; i<=n; i++)
         {
             int flatTiles = (a%mod + b%mod)%mod;
             
             int t = (sum[i - 3] % mod * 2 % mod ) % mod;
-            h[i] = (flatTiles % mod + t % mod ) % mod;
+            total = (flatTiles % mod + t % mod ) % mod;
             
-            sum[i] = (h[i]%mod + sum[i-1]%mod ) % mod;
+            sum[i] = (total%mod + sum[i-1]%mod ) % mod;
             b = a;
-            a = h[i];
+            a = total;
         }
-        return h[n];
+        return total;
             
         
         
