@@ -40,13 +40,14 @@ class Solution {
         
         for(int i = 3; i<=n; i++)
         {
-            f[i] = (h[i-1]%mod + h[i-2]%mod)%mod;
-            a = f[i];
-            b = a;
+            f[i] = (a%mod + b%mod)%mod;
+            
             int t = (sum[i - 3] % mod * 2 % mod ) % mod;
             h[i] = (f[i]%mod + t%mod ) % mod;
             
             sum[i] = (h[i]%mod + sum[i-1]%mod ) % mod;
+            b = a;
+            a = h[i];
         }
         return h[n];
             
