@@ -41,6 +41,8 @@ class Solution {
         for(int i = 3; i<=n; i++)
         {
             f[i] = (h[i-1]%mod + h[i-2]%mod)%mod;
+            a = f[i];
+            b = a;
             int t = (sum[i - 3] % mod * 2 % mod ) % mod;
             h[i] = (f[i]%mod + t%mod ) % mod;
             
