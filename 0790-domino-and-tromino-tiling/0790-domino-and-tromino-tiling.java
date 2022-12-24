@@ -28,12 +28,12 @@ class Solution {
         
         for(int i = 3; i<=n; i++)
         {
-            int flatTiles = (a%mod + b%mod)%mod;
+            int flatTiles = (a + b)%mod;
             
             int t = (sum[i - 3] % mod * 2 % mod ) % mod;
-            total = (flatTiles % mod + t % mod ) % mod;
+            total = (flatTiles + t) % mod;
             
-            sum[i] = (total%mod + sum[i-1]%mod ) % mod;
+            sum[i] = (total + sum[i-1]) % mod;
             b = a;
             a = total;
         }
