@@ -41,8 +41,7 @@ class Solution {
         {
             f[i] = (h[i-1]%mod + h[i-2]%mod)%mod;
             int t = (sum[i - 3] % mod * 2 % mod ) % mod;
-            g[i] = (g[i] % mod + t % mod ) % mod;
-            h[i] = (f[i]%mod + g[i]%mod ) % mod;
+            h[i] = (f[i]%mod + t%mod ) % mod;
             
             sum[i] = (h[i]%mod + sum[i-1]%mod ) % mod;
         }
