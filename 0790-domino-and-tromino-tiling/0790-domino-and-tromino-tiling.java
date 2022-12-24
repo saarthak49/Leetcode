@@ -31,7 +31,7 @@ class Solution {
             int flatTiles = (a%mod + b%mod)%mod;
             
             int t = (sum[i - 3] % mod * 2 % mod ) % mod;
-            h[i] = (flatTiles % mod + t%mod ) % mod;
+            h[i] = (flatTiles % mod + t % mod ) % mod;
             
             sum[i] = (h[i]%mod + sum[i-1]%mod ) % mod;
             b = a;
