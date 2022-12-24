@@ -9,6 +9,7 @@ class Solution {
         int[] f = new int[n + 1];
         int[] g = new int[n + 1];
         int[] h = new int[n + 1];
+        int[] sum = new int[n + 1];
         if(n == 1)
             return 1;
         else if(n == 2)
@@ -29,22 +30,22 @@ class Solution {
         h[1] = 1;
         h[2] = 2;
         
+        sum[0] = 1;
+        sum[1] = 2;
+        sum[2] = 4;
+        
+        
         
         
         for(int i = 3; i<=n; i++)
         {
             f[i] = (h[i-1]%mod + h[i-2]%mod)%mod;
-            
-            int j = i - 3;
-            while(j >= 0)
-            {
-                int t = (h[j] % mod * 2 % mod ) % mod;
-                g[i] = (g[i] % mod + t % mod ) % mod;
-                j--;
-            }
+            int t = (sum[i - 3] % mod * 2 % mod ) % mod;
+            g[i] = (g[i] % mod + t % mod ) % mod;
             h[i] = (f[i]%mod + g[i]%mod ) % mod;
+            
+            sum[i] = (h[i]%mod + sum[i-1]%mod ) % mod;
         }
-        
         return h[n];
             
         
