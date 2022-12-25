@@ -34,11 +34,10 @@ class Solution {
         
         
         int q = queries.length;
-        int[] ans = new int[q];
         for(int i = 0; i<=q-1; i++)
         {
-            ans[i] = find(nums, queries[i]);
+            queries[i] = find(nums, queries[i]);
         }
-        return ans;
+        return queries;
     }
 }
