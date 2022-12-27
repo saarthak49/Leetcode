@@ -12,10 +12,10 @@ class Solution {
         int count = 0;
         for(int i = 0; i<=n-1 && additionalRocks > 0; i++)
         {
-            additionalRocks -= rocks[i];
+            additionalRocks = additionalRocks - rocks[i];
             if(additionalRocks < 0)
                 break;
-            count++;
+            count = count + 1;
         }
         
         return count;
