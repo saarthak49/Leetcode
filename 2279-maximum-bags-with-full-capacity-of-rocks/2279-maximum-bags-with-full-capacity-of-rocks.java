@@ -10,7 +10,7 @@ class Solution {
         
         Arrays.sort(rocks);
         int count = 0;
-        for(int i = 0; i<=n-1 && additionalRocks > 0; i++)
+        for(int i = 0; i<=n-1; i++)
         {
             additionalRocks = additionalRocks - rocks[i];
             if(additionalRocks < 0)
