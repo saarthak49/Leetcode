@@ -4,10 +4,13 @@ class Solution {
         int sum = 0;
         for(int i : piles)
         {
+            if(i > 1)
             priorityQueue.offer(i);
             sum += i;
         }
         
+        if(priorityQueue.isEmpty())
+            return sum;
         
         while(k --> 0)
         {
