@@ -4,8 +4,7 @@ class Solution {
         int sum = 0;
         for(int i : piles)
         {
-            if(i > 1)
-                priorityQueue.offer(i);
+            priorityQueue.offer(i);
             sum += i;
         }
         
