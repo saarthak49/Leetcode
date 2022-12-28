@@ -9,7 +9,7 @@ class Solution {
         }
         
         
-        while(k --> 0 && !priorityQueue.isEmpty())
+        while(k --> 0)
         {
             int i = priorityQueue.poll();
             if(i == 1)
