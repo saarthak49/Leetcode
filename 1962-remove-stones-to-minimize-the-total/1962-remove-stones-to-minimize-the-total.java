@@ -12,6 +12,8 @@ class Solution {
         while(k --> 0)
         {
             int i = priorityQueue.poll();
+            if(i == 1)
+                break;
             sum -= i/2;
             i -= i/2;
             priorityQueue.offer(i);
