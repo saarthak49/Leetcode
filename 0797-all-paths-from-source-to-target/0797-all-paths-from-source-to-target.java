@@ -5,15 +5,15 @@ class Solution {
     public void runDfs(int source, int target, int[][] graph, List<List<Integer>> finalAns, List<Integer> pathSoFar, boolean vis[])
     {
         vis[source] = true;
-        pathSoFar.add(source);
         if(source == target)
         {
             List<Integer> path = new ArrayList(pathSoFar);
+            path.add(source);  
             finalAns.add(path);
-            pathSoFar.remove(Integer.valueOf(source));
             vis[source] = false;
             return;
         }
+        pathSoFar.add(source);
         for(int n : graph[source])
         {
             if(!vis[n])
