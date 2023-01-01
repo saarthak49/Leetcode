@@ -21,6 +21,7 @@ class Solution {
         {
             
             String str = "";
+            char p = pattern.charAt(i);
             
             if(s.charAt(j) == ' ')
                 j++;
@@ -30,15 +31,15 @@ class Solution {
                 str += s.charAt(j++);
             
             
-            if(forward.containsKey(pattern.charAt(i)) && backward.containsKey(str))
+            if(forward.containsKey(p) && backward.containsKey(str))
             {
-                if(!(forward.get(pattern.charAt(i)).equals(str) && backward.get(str).equals(pattern.charAt(i))))
+                if(!(forward.get(p).equals(str) && backward.get(str).equals(p)))
                     return false;
             }
-            else if(!forward.containsKey(pattern.charAt(i)) && !backward.containsKey(str))
+            else if(!forward.containsKey(p) && !backward.containsKey(str))
             {
-                forward.put(pattern.charAt(i), str);
-                backward.put(str, pattern.charAt(i));
+                forward.put(p, str);
+                backward.put(str, p);
             }
             else
             {
