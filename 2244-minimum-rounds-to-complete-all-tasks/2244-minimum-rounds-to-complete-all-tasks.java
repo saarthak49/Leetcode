@@ -8,7 +8,7 @@ class Solution {
         {
             if(value == 1)
                 return -1;
-            count += (value + 2)/3;
+            count += Math.ceil(value/3.0);
         }
         return count;
     }
