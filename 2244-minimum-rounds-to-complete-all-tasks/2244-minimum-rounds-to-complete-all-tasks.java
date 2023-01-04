@@ -14,9 +14,6 @@ class Solution {
     
     public int minimumRounds(int[] tasks) {
         Map<Integer, Integer> mp = new HashMap<>();
-        int n = tasks.length;
-        
-        
         
         for(int task : tasks)
             mp.put(task, mp.getOrDefault(task,0)+1);
