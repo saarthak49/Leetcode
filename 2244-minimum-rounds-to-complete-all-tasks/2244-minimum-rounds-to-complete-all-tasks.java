@@ -14,12 +14,7 @@ class Solution {
         
         
         for(int task : tasks)
-        {
-            if(mp.containsKey(task))
-                mp.put(task, mp.get(task) + 1);
-            else
-                mp.put(task, 1);
-        }
+            mp.put(task, mp.getOrDefault(task,0)+1);
         
         int count = 0;
         for(int value : mp.values())
