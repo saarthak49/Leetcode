@@ -3,17 +3,6 @@ class Solution {
     
     private int[] dp;
     
-    Solution()
-    {
-        this.dp = new int[(int)1e5+1];
-        dp[2] = 1;
-        dp[3] = 1;
-        dp[1] = 1;
-        for(int i = 4; i<=100000; i++)
-            dp[i] = Math.min(dp[i-2], dp[i-3]) + 1;
-    }
-    
-    
     
     public int minimumRounds(int[] tasks) {
         Map<Integer, Integer> mp = new HashMap<>();
@@ -21,7 +10,7 @@ class Solution {
         this.dp = new int[n + 1];
         dp[1] = 1;
         for(int i = 2; i<=n; i++)
-            dp[i] = Math.min(dp[i-2], i-3>=0?dp[i-3]:0) + 1;
+            dp[i] = Math.min(dp[i-2], (i-3)>=0?dp[i-3]:0) + 1;
         
         
         for(int task : tasks)
