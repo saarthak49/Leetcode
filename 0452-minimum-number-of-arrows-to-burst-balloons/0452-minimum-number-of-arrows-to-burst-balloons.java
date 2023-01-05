@@ -6,10 +6,13 @@ class Solution {
         int last = points[0][1];
         for(int i = 1; i<=n-1; i++)
         {
-            if(points[i][0] >= points[i-1][0] && points[i][0] <= points[i-1][1])
-                points[i][1] = Math.min(points[i][1], points[i-1][1]);
+            if(points[i][0] >= points[i-1][0] && points[i][0] <= last)
+                last = Math.min(points[i][1], last);
             else
+            {
+                last = points[i][1];
                 arrows++;
+            }
         }
         return arrows;
     }
