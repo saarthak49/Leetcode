@@ -8,11 +8,13 @@ class Solution {
         {
             if(points[i][0] >= points[i-1][0] && points[i][0] <= last)
                 last = Math.min(points[i][1], last);
-            else
+            if(points[i][0] > last)
             {
                 last = points[i][1];
                 arrows++;
             }
+            else
+                last = Math.min(points[i][1], last);
         }
         return arrows;
     }
