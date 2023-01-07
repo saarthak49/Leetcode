@@ -3,6 +3,8 @@ class Solution {
         int n = gas.length;
         int total = 0;
         int index = 0;
+        int totalg = 0;
+        int totalc = 0;
         for(int i = 0; i<=n-1; i++)
         {
             total += gas[i] - cost[i];
@@ -11,12 +13,9 @@ class Solution {
                 index = i + 1;
                 total = 0;
             }
-            if(i >= 1)
-            {
-                gas[i] += gas[i-1];
-                cost[i] += cost[i-1];
-            }
+            totalg += gas[i];
+            totalc += cost[i];
         }
-        return index == n ? -1 : (gas[n-1] < cost[n-1]) ? -1 : index;
+        return index == n ? -1 : (totalg < totalc) ? -1 : index;
     }
 }
