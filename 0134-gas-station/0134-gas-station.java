@@ -10,6 +10,6 @@ class Solution {
             }
             totalg += gas[i]; totalc += cost[i];
         }
-        return index == n ? -1 : (totalg < totalc) ? -1 : index;
+        return (totalg < totalc) ? -1 : index;
     }
 }
