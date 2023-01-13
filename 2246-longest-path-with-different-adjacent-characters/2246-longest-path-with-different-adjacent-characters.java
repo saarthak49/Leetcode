@@ -2,7 +2,6 @@ class Solution {
     public int longestPath(int[] parent, String s) {
          int n = parent.length;
         int[] childrenCount = new int[n];
-        // Start from node 1, since the root node does not have a parent.
         for (int node = 1; node < n; node++) {
             childrenCount[parent[node]]++;
         }
@@ -12,7 +11,6 @@ class Solution {
         int[][] longestChains = new int[n][2];
 
         for (int node = 1; node < n; node++) {
-            // Push all the leaf nodes in the queue.
             if (childrenCount[node] == 0) {
                 longestChains[node][0] = 1;
                 q.offer(node);
