@@ -6,8 +6,8 @@ class Solution {
         {
             int a = tr[0];
             int b = tr[1];
-            fw[b]++;
-            bw[a]++;
+            fw[tr[1]]++;
+            bw[tr[0]]++;
         }
         for(int i = 1; i<=n; i++)
         {
