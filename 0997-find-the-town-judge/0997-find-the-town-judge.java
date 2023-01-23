@@ -4,8 +4,6 @@ class Solution {
         int[] bw = new int[n+1];
         for(int[] tr : trust)
         {
-            int a = tr[0];
-            int b = tr[1];
             fw[tr[1]]++;
             bw[tr[0]]++;
         }
